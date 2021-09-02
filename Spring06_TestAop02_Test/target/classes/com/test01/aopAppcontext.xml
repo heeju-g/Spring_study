@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	
+	<bean id="myAspect" class="com.test01.MyAdvice"></bean>
+	<bean id="person01" class="com.test01.Person"/>
+	<bean id="person02" class="com.test01.Person"/>
+	
+	<!-- 이렇게 태그로 쓰면 before,after,after-returning을 적은 순서에 따라 출력값이 달라짐. 그냥 어노테이션으로 하면 이렇게 못함 -->
+	<aop:config>
+		<aop:aspect ref="myAspect">
+			<aop:pointcut expression="execution(public * sayName(..))" id="sayNamePointcut"/>
+			<aop:before method="beforeSaying" pointcut-ref="sayNamePointcut"/>
+			<aop:after method="afterSaying" pointcut-ref="sayNamePointcut"/>
+			<aop:after-returning method="afterReturnSaying" pointcut-ref="sayNamePointcut"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>

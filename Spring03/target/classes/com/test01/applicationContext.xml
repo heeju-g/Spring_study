@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 추상클래스는 원레 new이런식으로 객체생성을 못하는데  factory-method의 메소드로-->
+	<bean id="singleton" class="com.test01.AbstractTest" factory-method="getInstance" />
+	<!-- AbstractTest singleton = AbstractTest.getInstance(); 이렇게 메소드를 호출해서 해당클래스를 만드는 것 -->
+</beans>

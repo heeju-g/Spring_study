@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="lee" class="com.test04.Emp">
+		<property name="name" value="이순신"></property>
+		<property name="salary" value="3000000"></property>
+	</bean>
+	
+	<bean id="leess" class="com.test04.Developer">
+	<!-- ref 대신 value를 쓰면 문자열 lee를가져온단건데 우리는 객체를 가져와야 하므로 ref(참조) -->
+		<constructor-arg name="emp" ref="lee" />
+		<constructor-arg name="dept" value="java 1팀" />
+	</bean>
+	<!-- 홍길동 2500000 docker1팀 -->
+	<bean id="hong" class="com.test04.Emp">
+		<property name="name" value="홍길동"/>
+		<property name="salary" value="2500000"/>
+	</bean>
+	<bean id="honggd" class="com.test04.Engineer">
+		<constructor-arg ref="hong" />
+		<constructor-arg name="dept" value="docker 1팀" />
+	</bean>
+</beans>

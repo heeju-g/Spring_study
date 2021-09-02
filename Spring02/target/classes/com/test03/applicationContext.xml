@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="lee" class="com.test03.Address">
+	<!-- property태그는 setter를 찾아서 값을 주입함. name="name"은 setName을 불러옴 -->
+		<property name="name" value="이순신"></property>
+		<property name="addr" value="서울"></property>
+		<property name="phone" value="000-0000-0000"></property>
+	</bean>
+	
+		<bean id="hong" class="com.test03.Address">
+		<property name="name" value="홍길동"></property>
+		<property name="addr" value="서울"></property>
+		<property name="phone" value="000-0000-0000"></property>
+	</bean>
+</beans>
